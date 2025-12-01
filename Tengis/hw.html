@@ -1,91 +1,96 @@
-<h1>hamgiin baga toog oloh</h1>
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <title>hehe</title>
+</head>
 
-<input id="a">
-<input id="b">
-<input id="c">
-<input id="d">
-<button onclick="lmin()">hamgiin baga</button>
+<body>
 
-<h1>anhnii toog shalgah</h1>
+    <h1>hamgiin baga toog shalgah</h1>
 
-<input id="p">
-<button onclick="prime()">anhnii too</button>
+    <input id="a">
+    <input id="b">
+    <input id="c">
+    <input id="d">
+    <button onclick="lmin()">hamgiin baga ni</button>
 
-<script>
+    <h1>anhnii too shalgah</h1>
 
-function lmin() {
+    <input id="p">
+    <button onclick="prime()">anhnii too shalgah</button>
 
-    let a = document.getElementById("a").value;
-    let b = document.getElementById("b").value;
-    let c = document.getElementById("c").value;
-    let d = document.getElementById("d").value;
+    <script>
 
-    if(a=="" || b=="" || c=="" || d==""){
-        alert("4 too oruul");
+    function lmin() {
+
+        let a = document.getElementById("a").value;
+        let b = document.getElementById("b").value;
+        let c = document.getElementById("c").value;
+        let d = document.getElementById("d").value;
+
+        if(a=="" || b=="" || c=="" || d==""){
+            alert("4 too oruulna uu");
+            document.getElementById("a").value="";
+            document.getElementById("b").value="";
+            document.getElementById("c").value="";
+            document.getElementById("d").value="";
+            return;
+        }
+
+        a = Number(a);
+        b = Number(b);
+        c = Number(c);
+        d = Number(d);
+
+        let min = a;
+
+        if(b < min) min = b;
+        if(c < min) min = c;
+        if(d < min) min = d;
+
+        alert("hamgiin baga too ni= " + min);
+
         document.getElementById("a").value="";
         document.getElementById("b").value="";
         document.getElementById("c").value="";
         document.getElementById("d").value="";
-        return;
     }
 
-    a = Number(a);
-    b = Number(b);
-    c = Number(c);
-    d = Number(d);
+    function prime() {
 
-    let min = a;
+        let num = document.getElementById("p").value;
 
-    if(b < min){
-        min = b;
-    }
-    if(c < min){
-        min = c;
-    }
-    if(d < min){
-        min = d;
-    }
+        if(num==""){
+            alert("too oruul");
+            document.getElementById("p").value="";
+            return;
+        }
 
-    alert("hamgiin baga ni=" + min);
+        num = Number(num);
 
-    document.getElementById("a").value="";
-    document.getElementById("b").value="";
-    document.getElementById("c").value="";
-    document.getElementById("d").value="";
-}
+        let ok = true;
 
-function prime() {
-
-    let num = document.getElementById("p").value;
-
-    if(num==""){
-        alert("too oruulna uu");
-        document.getElementById("p").value="";
-        return;
-    }
-
-    num = Number(num);
-
-    let ok = true;
-
-    if(num < 2){
-        ok = false;
-    }
-
-    for(let i=2; i<num; i++){
-        if(num % i == 0){
+        if(num < 2){
             ok = false;
         }
+
+        for(let i=2; i<num; i++){
+            if(num % i == 0){
+                ok = false;
+            }
+        }
+
+        if(ok){
+            alert("anhnii too mun");
+        } else {
+            alert("anhnii too bish");
+        }
+
+        document.getElementById("p").value="";
     }
 
-    if(ok==true){
-        alert("unen");
-    } else {
-        alert("buruu");
-    }
+    </script>
 
-    document.getElementById("p").value="";
-}
-
-</script>
-
+</body>
+</html>
